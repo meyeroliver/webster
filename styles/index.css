@@ -101,6 +101,10 @@ body {
   }
 }
 
+.page-description {
+  margin-top: 0px
+}
+
 h2 {
   text-align: center;
   font-size: 2.5em;
