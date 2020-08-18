@@ -18,13 +18,13 @@ body {
   grid-area: footer;
 }
 
-.grid-container > div {
+.grid-container>div {
   position: relative;
   background-color: rgba(255, 255, 255, 0.8);
-  text-align: center;
-  padding: 20px 0;
-  font-size: 30px;
+  padding: 20px;
+
 }
+
 
 #next-button {
   min-width: 64px;
@@ -37,7 +37,6 @@ body {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
   float: right;
-  margin: 4px 24px;
 }
 
 #next-button:hover {
@@ -100,4 +99,27 @@ body {
     padding: 10px;
     background-color: #2196f3;
   }
+}
+
+h2 {
+  text-align: center;
+  font-size: 2.5em;
+}
+
+h3 {
+  text-align: justify;
+  font-size: 1.75em;
+}
+
+.main>p,
+ol>li {
+  text-align: justify;
+  font-size: 1.25em;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.readable {
+  text-align: justify;
+  font-size: 1.25em;
+  font-family: Arial, Helvetica, sans-serif;
 }
