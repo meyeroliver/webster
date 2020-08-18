@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Legit-IT</title>
+
+    <link rel="stylesheet" href="/styles/index.css">
+    <link rel="manifest" href="manifest.json">
+
+    <meta charset="UTF-8">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Space Missions">
+    <meta name="apple-mobile-web-app-title" content="Space Missions">
+    <meta name="theme-color" content="#FF9800">
+    <meta name="msapplication-navbutton-color" content="#FF9800">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="msapplication-starturl" content="/index.html">
+    <meta name="Description" content="Build By Netelek">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="icon" sizes="512x512" href="/images/touch/netelek-logo-orange.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="/images/touch/netelek-logo-orange.png">
+
+    <script data-main="config" src="/node_modules/requirejs/require.js"></script>
+    <script>
+        // loads file in the /js/config.js
+        require(['config'], function () {
+            //code goes here
+            require(['index-view-model'])
+        });
+    </script>
+
+    <!-- <script src="/js/save-to-offline.js"></script>
+    <script src="/js/register-sw.js"></script>
+ -->
+</head>
+
+<body>
+    <div class="grid-container">
+
+        <div class="header">HEADER</div>
+        <div class="main">
+            <div id="municipal-msg-container">
+                <h2>Message from the Municipality</h2>
+                <h3>Dear Residence</h3>
+                <p>
+                    We are now in our next phase of obtaining accurate data from all the
+                    residential postpaid customers. Our apologies for the previous
+                    estimation but soon, estimations will be something from the past.
+                </p>
+                <p>
+                    We are having a huge data recovery drive on the weekend of 30 November.
+                    We will have around 40 staff members (supported by senior municipal staff also)
+                    in the field to engage with customers and obtain
+                    metering and customer-related information directly on site via house to house
+                    visits. We
+                    trust you will assist us as we have specially arranged the drive to happen over a
+                    weekend so
+                    that we are sure to meet with you and get the best data we can.
+                </p>
+                <p>The better you assist us - the more accurate and better the service delivery is going to be.</p>
+                <p>We look forward to seeing you soon.</p>
+
+                <h2>Info about this app</h2>
+                <h3>You will use this app to:</h3>
+                <ol>
+                    <li>select your stand.</li>
+                    <li>update your customer information.</li>
+                    <li>capture your meter information.</li>
+                    <li>and then submit the information.</li>
+                </ol>
+            </div>
+            
+            <button id="next-button" type="button" onclick="alert('I am going back to roots. Yeah!')">NEXT</button>
+
+        </div>
+        <div class="footer">FOOTER</div>
+    </div>
+</body>
+
+</html>

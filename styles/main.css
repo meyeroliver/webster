@@ -1,0 +1,293 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 16 Oct 2019, 3:19:25 PM
+    Author     : christoff
+*/
+
+body {
+    position: absolute;
+    background-color: #fbfeff;
+    background-repeat: no-repeat;
+    background-size: 200px;
+    background-position: 50% -50%;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    top: 0px;
+    /*background-color: #fafafa;*/
+}
+
+#logo {
+    position: absolute;
+    margin: auto;
+    left: 0px;
+    right: 0px;
+    width: 200px;
+    height: 200px;
+}
+
+#under-logo {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    margin: auto;
+    height: 100px;
+}
+
+
+#file-upload-div {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+}
+
+#img-display {
+    position: fixed;
+    top: 46px;
+    left: 22px;
+    width: 100%
+}
+
+#img-display h3 {
+    position: fixed;
+    top: 0%;
+    left: 22%
+}
+
+#upload-button-div {
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    right: 5%;
+}
+
+#upload-button-div button {
+    width: 100%;
+    height: 40px
+}
+
+.banner {
+    align-content: center;
+    display: none;
+    justify-content: center;
+    width: 100%;
+}
+
+.steps {
+    position: absolute;
+    width: 100%;
+    height: 15px;
+    bottom: 1%;
+}
+
+.steps h3 {
+    height: 25px;
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+}
+
+.next-back-posistion {
+    position: absolute;
+    bottom: 4%;
+    left: 1%;
+    right: 1%
+}
+
+.details-form {
+    position: fixed;
+    width: 100%;
+    top: 6%;
+    height: 78%;
+    overflow: scroll;
+}
+
+.details-form table {
+    width: 100%;
+    overflow: scroll;
+}
+
+.details-form table td input {
+    width: 95%;
+}
+
+
+.details-form input {
+    font: 13px Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    border: 1px solid #C2C2C2;
+    box-shadow: 1px 1px 4px #EBEBEB;
+    -moz-box-shadow: 1px 1px 4px #EBEBEB;
+    -webkit-box-shadow: 1px 1px 4px #EBEBEB;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    padding: 7px;
+    outline: none;
+}
+
+.meter-details {
+    position: absolute;
+    top: 8%;
+}
+
+.meter-details table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.meter-details table tr td {
+    padding: 0px;
+    margin: 0px;
+    border-collapse: collapse;
+}
+
+.exit-msg {
+    position: absolute;
+    width: 100%;
+    height: 200px;
+    text-align: center;
+    top: 0px;
+    bottom: 0px;
+    margin: auto;
+    color: #0356a8;
+    ;
+}
+
+.add-button {
+    width: 150px;
+    height: 25px;
+    background-color: #fff;
+    color: #0356a8;
+    border-color: #0356a8;
+    min-width: 70px;
+    border-radius: 4px;
+    background: transparent;
+    border-style: solid;
+}
+
+.minus-button {
+    width: 10%;
+    height: 25px;
+    background-color: #fff;
+    color: #0356a8;
+    border-color: #0356a8;
+    min-width: 70px;
+    border-radius: 4px
+}
+
+.summary {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    overflow: scroll;
+    height: 75%;
+}
+
+.summary table,
+tr,
+td,
+p,
+span {
+    padding: 0px;
+    margin: 0px;
+    font-family: Helvetica, Sans-Serif;
+    font-size: 10pt;
+}
+
+.button-back-next {
+    width: 40%;
+    height: 40px;
+    background-color: #fff;
+    background: transparent;
+    color: #0356a8;
+    border-color: #0356a8;
+    min-width: 70px;
+    border-radius: 4px;
+    border-style: solid;
+}
+
+.button-back-next :active {
+    color: #0356a8;
+    border-color: #0356a8;
+}
+
+.button-back-next :focus {
+    border-color: #0356a8;
+}
+
+.page-header {
+    padding-top: 0px;
+    width: 100%;
+    font-family: Helvetica, Sans-Serif;
+}
+
+.page-header h3 {
+    padding: 0px;
+    margin: 0px;
+}
+
+.failed-call {
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    bottom: 0px;
+    height: 100%;
+    margin: auto;
+}
+
+.failed-call h3 {
+    font-family: Helvetica, Sans-Serif;
+}
+
+.retry-button {
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    bottom: 0px;
+    height: 40px;
+    margin: auto;
+    background-color: #fff;
+    background: transparent;
+    color: #0356a8;
+    border-color: #0356a8;
+    border-radius: 4px;
+    border-style: solid;
+}
+
+.lds-dual-ring {
+    display: none;
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 40%;
+    left: 35%
+}
+
+.lds-dual-ring:after {
+    content: " ";
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 6px solid #fff;
+    border-color: #0356a8 transparent #0356a8 transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+}
+
+@keyframes lds-dual-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

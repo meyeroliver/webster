@@ -1,0 +1,13 @@
+{
+    "name": "Legit-IT",
+    "short_name": "Legit-IT",
+    "lang": "en-US",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "theme_color": "#FF9800",
+    "background_color": "#FF9800",
+    "icons": [{
+        "src": "images/touch/netelek-logo-orange.png",
+        "sizes": "512x512"
+    }]
+}

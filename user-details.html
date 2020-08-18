@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div data-bind="visible:page()===3">
+        <div class="page-header">
+            <h3 style="text-align: center" data-bind="visible:info.standId() !== null">You chose an existing stand</h3>
+            <h3 style="text-align: center" data-bind="visible:info.standId() === null">You identified a new stand</h3>
+        </div>
+        <div class="details-form">
+            <table>
+                <tr>
+                    <td colspan="2"><b>Stand Info</b></td>
+                </tr>
+                <tr>
+                    <td>Account No:</td>
+                    <td><input type="text" data-bind="value:info.accountNumber" placeholder="Account Number"></td>
+                </tr>
+                <tr>
+                    <td>Stand No:</td>
+                    <td><input type="text" data-bind="value:info.standNumber" placeholder="Stand Number"></td>
+                </tr>
+                <tr>
+                    <td>Address:</td>
+                    <td><input autocomplete="off" type="text" data-bind="value:info.standDescription"
+                            placeholder="Street Address"></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><b>Owner Info</b></td>
+                </tr>
+                <tr>
+                    <td>Name:</td>
+                    <td><input type="text" data-bind="value:info.customerName" placeholder="Owner Name"></td>
+                </tr>
+                <tr>
+                    <td>Surname:</td>
+                    <td><input type="text" data-bind="value:info.customerSurname" placeholder="Owner Surname"></td>
+                </tr>
+                <tr>
+                    <td>Cell no:</td>
+                    <td><input type="number" data-bind="value:info.customerCellNumber" placeholder="Cellphone Number">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><input type="text" data-bind="value:info.customerEmail" placeholder="Email Address"></td>
+                </tr>
+                <tr>
+                    <td>Tenant tick box</td>
+                    <td><input type="checkbox" style="width: 24px; height: 24px" data-bind="checked:tenantTickBox" />
+                    </td>
+                </tr>
+                <tr data-bind="visible: tenantTickBox">
+                    <td colspan="2"><b>Tenant Info</b></td>
+                </tr>
+                <tr data-bind="visible: tenantTickBox">
+                    <td>Tenant Name:</td>
+                    <td><input type="text" data-bind="value:info.tenantName" placeholder="Tenant Name"></td>
+                </tr>
+                <tr data-bind="visible: tenantTickBox">
+                    <td>Tenant Surname:</td>
+                    <td><input type="text" data-bind="value:info.tenantSurname" placeholder="Tenant Surname"></td>
+                </tr>
+                <tr data-bind="visible: tenantTickBox">
+                    <td>Contact Number:</td>
+                    <td><input type="number" data-bind="value:info.tenantCellNumber" placeholder="Contact Number"></td>
+                </tr>
+                <tr data-bind="visible: tenantTickBox">
+                    <td>Email:</td>
+                    <td><input type="text" data-bind="value:info.tenantEmail" placeholder="Email"></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><b>Billing Address</b></td>
+                </tr>
+                <tr>
+                    <td>Address:</td>
+                    <td><input type="text" data-bind="value:info.billingAddress1" placeholder="Address"></td>
+                </tr>
+                <tr>
+                    <td>Suburb:</td><!-- SP wil he Suburb voor City/Town -->
+                    <td><input type="text" data-bind="value:info.billingAddress2" placeholder="Suburb"></td>
+                </tr>
+                <tr>
+                    <td>City/Town:</td>
+                    <td><input type="text" data-bind="value:info.billingAddress3" placeholder="City/Town"></td>
+                </tr>
+                <tr>
+                    <td>Postal:</td>
+                    <td><input type="number" data-bind="value:info.postalCode" placeholder="Postal Code"></td>
+                </tr>
+                <tr>
+                    <td>Vat No:</td>
+                    <td><input type="text" data-bind="value:info.vatNo" placeholder="Vat Number"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="steps">
+            <h3>Step 3 of 5</h3>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div data-bind="visible:page()===4">
+            <div class="page-header" style="padding: 0px; margin: 0px">
+                <h3 style="text-align: center">Meter Details</h3>
+            </div>
+            <div class="meter-details">
+                <table>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <!-- ko foreach:info.meterList -->
+                    <tr style="height:100px">
+                        <td>
+                            <input style="width:0px;height:0px;" data-bind="attr:{'id':'cap-image'+$index()},event:{change:function(){$parent.loadImg($index())}}" name="file" type="file"  accept="image/*" capture="camera">
+                            <canvas style="width: 100px; height: 100px;border-style: dashed; border-color: #0356a8;"  data-bind="attr:{'id':'canvas'+$index()},click:function(){$parent.takePicture($index());}">
+                            </canvas>
+                        </td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td><select style="margin-left: 3px;padding-top: 3px; padding-bottom: 3px; margin-top: 3px; margin-bottom: 3px" data-bind="value:meterCategory"><option value="ELECTRICITY">Electricity</option><option value="WATER">Water</option></select></td>
+                                    <td style="text-align: right"><select style="margin-left: 3px;padding-top: 3px; padding-bottom: 3px; margin-top: 3px; margin-bottom: 3px" data-bind="value:meterApplication"><option value="PREPAID">Prepaid</option><option value="POSTPAID">Postpaid</option></select></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><input style="margin-left: 3px;padding-top: 3px; padding-bottom: 3px; margin-top: 3px; margin-bottom: 3px;border-style: solid; border-color: #cde6fe;" type="text" data-bind="value:serialNumber" placeholder="Serial Number"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><input style="margin-left: 3px;padding-top: 3px; padding-bottom: 3px; margin-top: 3px; margin-bottom: 3px;border-style: solid; border-color: #cde6fe;" type="number" data-bind="value:meterReading, visible:meterApplication() === 'POSTPAID'" placeholder="Current Meter Reading"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="text-align: right">
+                                        <button class="minus-button" data-bind="click:$parent.removeMeter">-</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+
+                    </tr>
+                    <!-- /ko -->
+                </table>
+                <div style="margin-top: 5px; margin-left: 4px">
+                    <button class="add-button" data-bind="click:addMeter">ADD METER</button>
+                </div>
+            </div>
+            <div class="steps">
+                <h3>Step 4 of 5</h3>
+            </div>
+        </div>
+
+    </body>
+</html>

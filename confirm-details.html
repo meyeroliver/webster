@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div data-bind="visible:page()===5">
+            <button type="button" data-bind="click:upload" style="width: 100%; height: 40px;background-color: #fff; color: #0356a8;  border-color: #0356a8; border-style: solid;  border-radius:4px" >UPLOAD</button>
+            <div class="summary">
+                <h3>Summary</h3>
+                <table>
+                    <tr>
+                        <td><p>Account No:</p></td>
+                        <td><span data-bind="text: info.accountNumber"></span></td>
+                    </tr>
+                    <tr>
+                        <td><p>Stand on map:</p></td>
+                        <td><span data-bind="text: info.standNumber"></span></td>
+                    </tr>
+                    <tr>
+                        <td><p>Street Address:</p></td>
+                        <td><span data-bind="text: info.standDescription"></span></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><span><b>Customer Details</b></span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left: 10px; padding-bottom: 3px; padding-top: 3px"><p>Name:</p></td>
+                        <td><span data-bind="text:info.customerName"></span> <span data-bind="text: info.customerSurname"></span></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left: 10px; padding-bottom: 3px; padding-top: 3px"><p>Number:</p></td>
+                        <td><span data-bind="text:info.customerCellNumber"></span></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left: 10px; padding-bottom: 3px; padding-top: 3px"><p>Email Address:</p></td>
+                        <td><span data-bind="text:info.customerEmail"></span></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left: 10px; padding-bottom: 3px; padding-top: 3px"><p>Vat Number:</p></td>
+                        <td><span data-bind="text:info.vatNo"></span></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><span><b>Meter Details</b></span></td>
+                        <td></td>
+                    </tr>
+                    <!-- ko foreach:info.meterList -->
+                    <tr>
+                        <td colspan="2">
+                            <table style="padding-left: 10px; padding-bottom: 3px; padding-top: 3px">
+                                <tr>
+                                    <td><p>Meter type:</p></td>
+                                    <td><span data-bind="text: meterCategory"></span></td>
+                                </tr>
+                                <tr>
+                                    <td><p>Serial Number:</p></td>
+                                    <td><span data-bind="text: serialNumber"></span></td>
+                                </tr>
+                                <tr>
+                                    <td><p>Billing type:</p></td>
+                                    <td><span data-bind="text: meterApplication"></span></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <!-- /ko -->
+                    <tr>
+                        <td colspan="2"><span><b>Tenant Details</b></span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left: 10px; padding-bottom: 3px; padding-top: 3px"><p>Name:</p></td>
+                        <td><span data-bind="text:info.tenantName"></span> <span data-bind="text: info.tenantSurname"></span></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left: 10px; padding-bottom: 3px; padding-top: 3px"><p>Number:</p></td>
+                        <td><span data-bind="text:info.tenantCellNumber"></span></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left: 10px; padding-bottom: 3px; padding-top: 3px"><p>Email Address:</p></td>
+                        <td><span data-bind="text:info.tenantEmail"></span></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="steps">
+                <h3>Step 5 of 5</h3>
+            </div>
+        </div>
+
+    </body>
+</html>

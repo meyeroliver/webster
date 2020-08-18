@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <script type='text/javascript' src='/js/knockout-3.5.0rc2.js'></script>
+        <script type="text/javascript" src="/js/knockout.mapping-latest.js"></script>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdvzLjlcHEChG4V_IXeuYiIQAYY8POAY4&sensor=false"></script>
+
+    </head>
+    <body>
+        <div data-bind="visible:page()===2">
+            <div class="page-header">
+                <h3 style="text-align: center">Select Stand/Indicate location</h3>
+            </div>
+            <div  id="map_container" style="position:absolute; top:6%; right:0px; left:0px; bottom: 80px"></div>
+            <div class="steps">
+                <h3>Step 2 of 5</h3>
+            </div>
+        </div>
+
+    </body>
+</html>
