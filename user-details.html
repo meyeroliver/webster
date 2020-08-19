@@ -2,13 +2,40 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/styles/index.css">
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
+    <div class="grid-container">
+
+        <div class="header">HEADER</div>
+        <div class="main">
+            <h2 class="page-description">Message base off of new or existing stand</h2>
+            <form autocomplete="on">
+                <div class="row">
+                    <div class="col-6">
+                        <label for="first-name" class="label-form">First name:</label>
+                    </div>
+                    <div class="col-6">
+                        <input type="text" id="first-name" name="first-name"
+                            class="text-input-form text-input-border-form">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="footer">FOOTER</div>
+
+    </div>
+</body>
+
+</html>
+
+<!-- 
+
+    <body>
     <div data-bind="visible:page()===3">
         <div class="page-header">
             <h3 style="text-align: center" data-bind="visible:info.standId() !== null">You chose an existing stand</h3>
@@ -84,7 +111,7 @@
                     <td><input type="text" data-bind="value:info.billingAddress1" placeholder="Address"></td>
                 </tr>
                 <tr>
-                    <td>Suburb:</td><!-- SP wil he Suburb voor City/Town -->
+                    <td>Suburb:</td><!-- SP wil he Suburb voor City/Town
                     <td><input type="text" data-bind="value:info.billingAddress2" placeholder="Suburb"></td>
                 </tr>
                 <tr>
@@ -107,4 +134,4 @@
     </div>
 </body>
 
-</html>
+ -->
