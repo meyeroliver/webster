@@ -1,0 +1,152 @@
+/*
+ * TODO: 
+ * -> bring the column concept into here 
+ * -> and check to see how well it can be used from here
+ */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: unset;
+}
+
+.header {
+    grid-area: header;
+}
+
+.main {
+    grid-area: main;
+}
+
+.footer {
+    grid-area: footer;
+}
+
+.grid-container>div {
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+}
+
+/*----------------------------------------------------------------------------------------*/
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.col-1 {
+    width: 8.33%;
+}
+
+.col-2 {
+    width: 16.66%;
+}
+
+.col-3 {
+    width: 25%;
+}
+
+.col-4 {
+    width: 33.33%;
+}
+
+.col-5 {
+    width: 41.66%;
+}
+
+.col-6 {
+    width: 50%;
+}
+
+.col-7 {
+    width: 58.33%;
+}
+
+.col-8 {
+    width: 66.66%;
+}
+
+.col-9 {
+    width: 75%;
+}
+
+.col-10 {
+    width: 83.33%;
+}
+
+.col-11 {
+    width: 91.66%;
+}
+
+.col-12 {
+    width: 100%;
+}
+
+
+/* -------------------------------------------------------------------------------------- */
+
+/* Mobile First */
+.grid-container {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+    gap: 10px;
+    padding: 10px;
+    background-color: #2196f3;
+}
+
+/* -------------------------------------------------------------------------------------- */
+
+/*For tablets*/
+@media only screen and (min-width: 481px) {
+    .grid-container {
+        display: grid;
+        grid-template-areas:
+            "header"
+            "main"
+            "footer";
+        gap: 10px;
+        padding: 10px;
+        background-color: #2196f3;
+    }
+}
+
+/* -------------------------------------------------------------------------------------- */
+
+/*For laptops*/
+@media only screen and (min-width: 769px) {
+    .grid-container {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-areas:
+            "header header header"
+            "main main main"
+            "footer footer footer";
+        gap: 10px;
+        padding: 10px;
+        background-color: #2196f3;
+    }
+}
+
+/* -------------------------------------------------------------------------------------- */
+
+/*For Desktops*/
+@media only screen and (min-width: 1025px) {
+    .grid-container {
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+        grid-template-areas:
+            "header header header"
+            ". main ."
+            "footer footer footer";
+        gap: 10px;
+        padding: 10px;
+        background-color: #2196f3;
+    }
+}

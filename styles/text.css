@@ -1,0 +1,39 @@
+.page-description {
+  margin-top: 0px
+}
+
+h2 {
+  text-align: center;
+  font-size: 2.5em;
+}
+
+h3 {
+  text-align: justify;
+  font-size: 1.75em;
+}
+
+p,
+ol>li {
+  text-align: justify;
+  font-size: 1.25em;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#next-button {
+  min-width: 64px;
+  padding: 12px 28px;
+  font-size: 24px;
+  border: none;
+  border-radius: 8px;
+  background-color: #4caf50;
+  transition-duration: 0.5s;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  float: right;
+}
+
+#next-button:hover {
+  color: white;
+  border: none;
+  background-color: #08440a;
+}
