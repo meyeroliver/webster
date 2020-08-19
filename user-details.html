@@ -8,6 +8,17 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script data-main="config" src="/node_modules/requirejs/require.js"></script>
+    <script>
+        // loads file in the /js/config.js
+        require(['config'], function () {
+            //code goes here
+            require(['form-component'])
+        });
+    </script>
+
+
 </head>
 
 <body>
@@ -17,37 +28,37 @@
         <div class="main">
             <h2 class="page-description">Message base off of new or existing stand</h2>
             <form autocomplete="on">
-
-                <div class="row">
+                <!-- <user-details-form params='firstname: "awe", lastname:"awe", email:"awe"'></user-details-form> -->
+                 <div class="row">
                     <div class="col-6">
                         <label for="first-name" class="label-form">First name:</label>
                     </div>
                     <div class="col-6">
                         <input type="text" id="first-name" name="first-name"
-                            class="text-input-form text-input-border-form">
+                            class="text-input-form text-input-border-form" data-bind="value:firstname">
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-6">
-                        <label for="first-name" class="label-form">First name:</label>
+                        <label for="lastname" class="label-form">Lastname:</label>
                     </div>
                     <div class="col-6">
-                        <input type="text" id="first-name" name="first-name"
-                            class="text-input-form text-input-border-form">
+                        <input type="text" id="lastname" name="lastname" class="text-input-form text-input-border-form"
+                            data-bind="value:lastname">
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-6">
-                        <label for="first-name" class="label-form">First name:</label>
+                        <label for="email" class="label-form">Email:</label>
                     </div>
                     <div class="col-6">
-                        <input type="text" id="first-name" name="first-name"
-                            class="text-input-form text-input-border-form">
+                        <input type="text" id="email" name="email" class="text-input-form text-input-border-form"
+                            data-bind="value:email">
                     </div>
                 </div>
-
+ 
                 <hr>
             </form>
         </div>
