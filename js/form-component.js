@@ -16,10 +16,6 @@
      })
 
      if (document.readyState === 'complete') {
-         ko.applyBindings(userDetailsViewModel);
-         /* var temp = document.getElementById('user-details-form-template')
-         var clone = temp.content.cloneNode(true)
-         document.getElementsByTagName("form")[0].appendChild(clone)
- */
+         ko.applyBindings();
      }
  })
