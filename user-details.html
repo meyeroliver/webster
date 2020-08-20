@@ -10,12 +10,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script data-main="config" src="/node_modules/requirejs/require.js"></script>
-    <!--  <script src="../loaders/load-user-details.js"></script> -->
     <script>
         // loads file in the /js/config.js
         require(['config'], function () {
             //code goes here
-            require(['load-user-details'])
+            require(['/loaders/load-user-details.js'])
         });
     </script>
 </head>
@@ -27,8 +26,6 @@
         <div class="main">
             <h2 class="page-description">Message base off of new or existing stand</h2>
             <form autocomplete="on">
-                <template id='user-details-form-template'>
-                </template>
                 <user-details-form>
                 </user-details-form>
                 <hr>

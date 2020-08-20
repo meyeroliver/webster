@@ -1,4 +1,4 @@
- define(['knockout', 'text!../form-template.html'], function (ko, formTemplate) {
+ define(['knockout', 'text!/components/form/form-template.html'], function (ko, formTemplate) {
 
      var userDetailsViewModel = function (params) {
          this.firstname = ko.observable(params.firstname)
