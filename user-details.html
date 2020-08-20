@@ -10,11 +10,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script data-main="config" src="/node_modules/requirejs/require.js"></script>
+    <!--  <script src="../loaders/load-user-details.js"></script> -->
     <script>
         // loads file in the /js/config.js
         require(['config'], function () {
             //code goes here
-            require(['form-component'])
+            require(['load-user-details'])
         });
     </script>
 </head>
@@ -27,38 +28,8 @@
             <h2 class="page-description">Message base off of new or existing stand</h2>
             <form autocomplete="on">
                 <template id='user-details-form-template'>
-                    <div class="row">
-                        <div class="col-6">
-                            <label for="first-name" class="label-form">First name:</label>
-                        </div>
-                        <div class="col-6">
-                            <input type="text" id="first-name" name="first-name"
-                                class="text-input-form text-input-border-form" data-bind="value:firstname">
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-6">
-                            <label for="lastname" class="label-form">Lastname:</label>
-                        </div>
-                        <div class="col-6">
-                            <input type="text" id="lastname" name="lastname"
-                                class="text-input-form text-input-border-form" data-bind="value:lastname">
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-6">
-                            <label for="email" class="label-form">Email:</label>
-                        </div>
-                        <div class="col-6">
-                            <input type="text" id="email" name="email" class="text-input-form text-input-border-form"
-                                data-bind="value:email">
-                        </div>
-                    </div>
-
                 </template>
-                <user-details-form params='firstname:"Oliver", lastname:"Meyer", email:"oliver.meyer@netelek.com"'>
+                <user-details-form>
                 </user-details-form>
                 <hr>
             </form>

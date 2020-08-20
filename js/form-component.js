@@ -1,21 +1,16 @@
- define(['knockout', 'jquery'], function (ko, $) {
+ define(['knockout', 'text!../form-template.html'], function (ko, formTemplate) {
 
      var userDetailsViewModel = function (params) {
          this.firstname = ko.observable(params.firstname)
          this.lastname = ko.observable(params.lastname)
          this.email = ko.observable(params.email)
-
-         console.log(params)
+         /* this.email = ko.pureComputed(function () {
+             return this.firstname() + " " + this.lastname()
+         }, this)
+ */
      }
-
-     ko.components.register('user-details-form', {
-         template: {
-             element: 'user-details-form-template'
-         },
-         viewModel: userDetailsViewModel
-     })
-
-     if (document.readyState === 'complete') {
-         ko.applyBindings();
+     return {
+         viewModel: userDetailsViewModel,
+         template: formTemplate
      }
  })
