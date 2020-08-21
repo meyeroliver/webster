@@ -88,7 +88,7 @@
             <label for="address-level3" class="label-form">Suburb:</label>
         </div>
         <div class="col-6">
-            <input type="text" id="address-level3" name="address-level3" class="text-input-form text-input-border-form"
+            <input type="text" id="address-level3" name="address-level4" class="text-input-form text-input-border-form"
                 data-bind="value:billingAddress2">
         </div>
     </div>
@@ -119,18 +119,69 @@
             .
         </div>
         <div class="col-6">
-
             <div class="row">
-                <div class="col-10">
+                <div class="col-6" style="width: 80%;">
                     <label for="tenant" class="label-form">Tenants</label>
                 </div>
-                <div class="col-2">
-                    <input type="checkbox" id="tenant" name="tenant" value="true">
+                <div class="col-6" style="width: 20%;">
+                    <input type="checkbox" id="tenant" name="tenant" data-bind="checked: hasTenant">
                 </div>
             </div>
 
         </div>
     </div>
 
+    <div id="tenant-container" data-bind="visible: showTenantContainer">
+        <div class="row">
+            <div class="col-6">
+                <label for="tenant-name" class="label-form">Tenant Name:</label>
+            </div>
+            <div class="col-6">
+                <input type="text" id="tenant-name" name="tenant-name" class="text-input-form text-input-border-form"
+                    data-bind="value:tenantName">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                <label for="tenant-surname" class="label-form">Tenant Surname:</label>
+            </div>
+            <div class="col-6">
+                <input type="text" id="tenant-surname" name="tenant-surname"
+                    class="text-input-form text-input-border-form" data-bind="value:tenantSurname">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                <label for="tenant-cellphone" class="label-form">Tenant Cell Phone:</label>
+            </div>
+            <div class="col-6">
+                <input type="text" id="tenant-cellphone" name="tenant-cellphone"
+                    class="text-input-form text-input-border-form" data-bind="value:tenantCellphone">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                <label for="tenant-email" class="label-form">Tenant Email:</label>
+            </div>
+            <div class="col-6">
+                <input type="text" id="tenant-email" name="tenant-email" class="text-input-form text-input-border-form"
+                    data-bind="value:tenantEmail">
+            </div>
+        </div>
+    </div>
+    <hr>
+
+    <div class="row">
+        <div class="col-6">
+            .
+        </div>
+        <div class="col-6">
+            <button id="next-button" type="button" onclick="alert('I am going back to roots. Yeah!')">NEXT</button>
+
+        </div>
+    </div>
 
 </form>
