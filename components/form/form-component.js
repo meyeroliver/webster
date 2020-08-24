@@ -1,5 +1,5 @@
-define(['knockout', 'text!/components/form/form-template.html', 'captureDB'],
-    function (ko, formTemplate, dbConn) {
+define(['knockout', 'text!/components/form/form-template.html', 'customerDoa'],
+    function (ko, formTemplate, customerDoa) {
 
         var userDetailsViewModel = function (params) {
 
@@ -40,8 +40,31 @@ define(['knockout', 'text!/components/form/form-template.html', 'captureDB'],
              */
             saveFormData = function () {
                 console.log('awe, I have been clicked')
-                //  alert('awe, I have been clicked')
-                let db = dbConn.result;
+                
+                let mockCustomer = {
+                    cID: Math.floor(100 * Math.random()),
+                    customerName: this.firstname(),
+                    customerSurname: this.lastname(),
+                    customerCellphone: this.cellphone(),
+                    customerEmail: this.email(),
+                    accountNumber: this.accountNo(),
+                    standNumber: this.standNo(),
+                    standDescription: this.address(),
+                    billingAddress1: this.billingAddress1(),
+                    billingAddress2: this.billingAddress2(),
+                    billingAddress3: this.billingAddress3(),
+                    postalCode: this.postalCode(),
+                    vatNo: 100 * Math.random(),
+                    tenantName: this.tenantName(),
+                    tenantSurname: this.tenantSurname(),
+                    tenantCellNumber: this.tenantCellphone(),
+                    tenantEmail: this.tenantEmail(),
+
+                };
+
+                
+                customerDoa.insert(mockCustomer)
+                /* let db = dbConn.result;
                 // continue to work with database using db object
 
                 var transaction = db.transaction('customers', 'readwrite')
@@ -81,7 +104,7 @@ define(['knockout', 'text!/components/form/form-template.html', 'captureDB'],
                 transaction.oncomplete = function () {
                     console.log("closing connection to database")
                     //db.close();
-                }
+                } */
 
             }
         }
