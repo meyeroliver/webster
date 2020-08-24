@@ -1,6 +1,6 @@
 define(['knockout'], function (ko) {
-    ko.components.register('user-details-form', {
-        require: '/components/form/form-component.js'
+    ko.components.register('meter-card', {
+        require: '/components/meter/meter-view-model.js'
     })
     /**
      * TODO 

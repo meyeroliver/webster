@@ -17,7 +17,7 @@
         // loads file in the /js/config.js
         require(['config'], function () {
             //code goes here
-            /*  require(['/loaders/load-user-details.js']) */
+            require(['/loaders/load-meter-details.js'])
         });
     </script>
 </head>
@@ -29,97 +29,7 @@
         <div class="main">
             <h2 class="page-description">Meter Details</h2>
 
-            <div class="meter-card">
-                <div>
-                    <!-- <input type="image" src="/images/photo_camera-24px.svg" alt="Image not found" class="center"> -->
-                    <!-- <input type="image" src="/images/photo_camera-24px.svg" alt="Image not found" class="center"> -->
-                    <label for="meter-image">
-                        <img src="/images/photo_camera-24px.svg" alt="Image not found" class="captured-image" />
-                    </label>
-                    <input type="file" id="meter-image" name="meter-image" accept="image/*" capture="camera"
-                        style="display: none;">
-
-
-                    <div id="imagePreview" class="image-preview">
-                        <img src="" class="captured-image">
-                        <script>
-                            const inpFile = document.getElementById("meter-image")
-                            const imgContainer = document.getElementById("imagePreview")
-                            const capturedImg = imgContainer.querySelector(".captured-image")
-
-                            inpFile.addEventListener("change", function () {
-                                const file = this.files[0]
-                                if (file) {
-                                    const reader = new FileReader();
-
-                                    reader.readAsDataURL(file)
-
-                                    /**
-                                     *waits for image to finish loading
-                                     */
-                                    reader.addEventListener("load", function () {
-                                        /**
-                                         *This sets the captured image to the element
-                                         */
-                                        capturedImg.setAttribute("src", this.result)
-                                        /**
-                                         * TODO
-                                         * - convert image to blob and save into index db under the current customer
-                                         * - allow for persistence across reloads
-                                         */
-                                    })
-                                }
-                                console.log(file)
-                            })
-                        </script>
-                    </div>
-                </div>
-                <hr>
-                <div class="meter-details">
-                    <div class="row">
-                        <div class="col-6">
-                            <label for="meter-type">Select Meter Type:</label>
-                        </div>
-                        <div class="col-6">
-                            <select name="meter-type" id="meter-type">
-                                <option value="electricity">ELECTRICITY</option>
-                                <option value="water">WATER</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-6">
-                            <label for="consumption-type">Select Consumption Type:</label>
-                        </div>
-                        <div class="col-6">
-                            <select name="consumption-type" id="consumption-type">
-                                <option value="prepaid">PREPAID</option>
-                                <option value="postpaid">POSTPAID</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-6">
-                            <label for="serialNo" class="label-form">Serial Number:</label>
-                        </div>
-                        <div class="col-6">
-                            <input type="text" id="serialNo" name="serialNo"
-                                class="text-input-form text-input-border-form" data-bind="value:standNo">
-                        </div>
-                    </div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div style="display: inline;">
-                        <button>awe</button>
-                        <button>awe</button>
-
-                    </div>
-                </div>
-
-            </div>
+            <meter-card></meter-card>
 
         </div>
         <div class="footer">FOOTER</div>
