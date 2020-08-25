@@ -1,6 +1,37 @@
 <div class="meter-card">
+    <div class="row" style="height: 75%;">
+        <div class="img-container">
+            <label for="meter-image" class="img-label" data-bind=" visible: takeImage">
+                <img src="/images/photo_camera-24px.svg" alt="Image not found" class="captured-image" />
+            </label>
+            <input type="file" id="meter-image" name="meter-image" accept="image/*" capture="camera"
+                style="display: none;">
+            <div id="imagePreview" class="img-label" style="position:relative; height:100%">
+                <img src="" class="captured-image">
+            </div>
+        </div>
+        <div class="input-container">
+            <select name="meter-type" id="meter-type" class="meter-form-input" data-bind="value: meterType">
+                <option value="electricity">ELECTRICITY</option>
+                <option value="water">WATER</option>
+            </select>
 
-    <div class="row">
+            <select name="consumption-type" id="consumption-type" class="meter-form-input"
+                data-bind="value: consumptionType">
+                <option value=" prepaid">PREPAID</option>
+                <option value="postpaid">POSTPAID</option>
+            </select>
+
+            <input type="text" id="serialNo" name="serialNo" class="text-input-border-form meter-form-input"
+                data-bind="textInput: serialNo">
+        </div>
+
+    </div>
+    <div class="row" style="height: 25%; background: rgb(1, 10, 133);">
+        <button id="removeMeter" type="button" class="primaryButton" data-bind="click: removeMeter">Remove</button>
+        <button id="saveMeter" type="button" class="primaryButton" data-bind="click: saveMeter">Save</button>
+    </div>
+    <!-- <div class="row">
         <div class="col-4" style="background:red; height: 200px;">
             <label for="meter-image" class="img-label" style="position:relative; height:100%"
                 data-bind="visible: takeImage">
@@ -40,7 +71,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </div>
 <!-- <div>
         <label for="meter-image">

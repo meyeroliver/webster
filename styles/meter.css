@@ -2,6 +2,7 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
     width: 100%;
+    height: 200px;
     background: burlywood
 }
 
@@ -33,6 +34,47 @@
 
 
 .img-label {
+    display: block;
     position: relative;
     height: 100%;
+    width: 100%;
+}
+
+.img-container {
+    float: left;
+    position: relative;
+    height: 100%;
+    width: 40%;
+    display: block;
+    background: olive
+}
+
+.input-container {
+    float: left;
+    position: relative;
+    height: 100%;
+    width: 60%;
+    display: block;
+    background: orange;
+    padding: 15px
+}
+
+.meter-form-input {
+    display: block;
+    height: 26.66%;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.primaryButton {
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+    background-color: #ff6336;
+    height: 36px;
+    width: 90px;
+    border-radius: 10px;
+    border-width: 2px;
+    border-color: #ff6336;
+    margin: 10px;
 }
