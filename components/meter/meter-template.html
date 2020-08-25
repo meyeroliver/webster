@@ -1,5 +1,48 @@
 <div class="meter-card">
-    <div>
+
+    <div class="row">
+        <div class="col-4" style="background:red; height: 200px;">
+            <label for="meter-image" class="img-label" style="position:relative; height:100%"
+                data-bind="visible: takeImage">
+                <img src="/images/photo_camera-24px.svg" alt="Image not found" class="captured-image" />
+            </label>
+            <input type="file" id="meter-image" name="meter-image" accept="image/*" capture="camera"
+                style="display: none;">
+
+            <div id="imagePreview" class="img-label" style="position:relative; height:100%">
+                <img src="" class="captured-image">
+            </div>
+        </div>
+        <div class="col-8" style="background:olive; height: 200px;">
+
+            <div class="row">
+                <div class="col-12">
+                    <select name="meter-type" id="meter-type" data-bind="value: meterType">
+                        <option value="electricity">ELECTRICITY</option>
+                        <option value="water">WATER</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <select name="consumption-type" id="consumption-type" data-bind="value: consumptionType">
+                        <option value=" prepaid">PREPAID</option>
+                        <option value="postpaid">POSTPAID</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <input type="text" id="serialNo" name="serialNo" class="text-input-form text-input-border-form"
+                        data-bind="textInput: serialNo">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <div>
         <label for="meter-image">
             <img src="/images/photo_camera-24px.svg" alt="Image not found" class="captured-image"
                 data-bind="visible: takeImage" />
@@ -45,8 +88,8 @@
                     data-bind="textInput: serialNo">
             </div>
         </div>
-    </div>
-    <hr>
+    </div> -->
+<!-- <hr>
     <div class="row">
         <div style="display: inline;">
             <button id="removeMeter" type="button" data-bind="click: removeMeter">Remove</button>
@@ -54,5 +97,5 @@
 
         </div>
     </div>
-
+ -->
 </div>

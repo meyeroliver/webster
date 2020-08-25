@@ -6,8 +6,33 @@
 }
 
 .captured-image {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 80%;
+}
+
+.new-captured-image {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 50%;
+}
+
+
+.img-label {
+    position: relative;
+    height: 100%;
 }
