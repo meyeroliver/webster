@@ -1,34 +1,24 @@
-define(['knockout', 'text!/components/meter/meter-template.html', 'captureDB'],
-    function (ko, meterTemplate, dbConn) {
+define(['knockout', 'text!/components/meter/meter-template.html', 'customerDoa'],
+    function (ko, meterTemplate, customerDoa) {
 
         var meterViewModel = function (params) {
             var self = this
             self.takeImage = ko.observable(true)
-            this.meterType = ko.observable(params.meterType)
-            this.consumptionType = ko.observable(params.consumptionType)
-            this.serialNo = ko.observable(params.serialNo)
-
-            saveMeter = function () {
-                alert('awe, Save Meter was clicked')
-            }
-
-            removeMeter = function () {
-                alert('awe, Remove Meter was clicked')
-            }
+            self.meterType = ko.observable(params.meterType)
+            self.consumptionType = ko.observable(params.consumptionType)
+            self.serialNo = ko.observable(params.serialNo)
 
             const inpFile = document.getElementById("meter-image")
             const imgContainer = document.getElementById("imagePreview")
             const capturedImg = imgContainer.querySelector(".captured-image")
 
-            var hideImgIcon = this.takeImage()
+            var hideImgIcon = self.takeImage()
 
             inpFile.addEventListener("change", function () {
                 const file = this.files[0]
                 if (file) {
                     const reader = new FileReader();
-
                     reader.readAsDataURL(file)
-
                     /**
                      *waits for image to finish loading
                      */
@@ -48,12 +38,21 @@ define(['knockout', 'text!/components/meter/meter-template.html', 'captureDB'],
                 console.log(file)
             })
 
+            saveMeter = function () {
 
+                let mockMeter = {
+                    meterType: self.meterType(),
+                    consumptionType: self.consumptionType(),
+                    serialNo: self.serialNo()
 
+                };
 
+                customerDoa.updateByCustomerId(mockMeter, 2)
+            }
 
-
-
+            removeMeter = function () {
+                alert('awe, Remove Meter was clicked')
+            }
 
         }
         return {

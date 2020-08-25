@@ -20,7 +20,7 @@ define([], function () {
         if (!db.objectStoreNames.contains('customers')) {
             //creating customers object store [table]
             var customersStore = db.createObjectStore('customers', {
-                autoIncrement:true
+                autoIncrement: true
             })
 
             customersStore.createIndex("cellphone", "cellphone", {
@@ -36,9 +36,9 @@ define([], function () {
     openRequest.onerror = function () {
         console.error("Error", openRequest.error);
         /**
-     * TODO
-     * - explain to user that the database connection is faulty 
-     */
+         * TODO
+         * - explain to user that the database connection is faulty 
+         */
     };
 
     openRequest.onsuccess = function () {
