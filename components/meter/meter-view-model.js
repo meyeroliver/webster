@@ -43,7 +43,7 @@ define([
       // console.log(file);
     });
 
-    saveMeter = function () {
+    saveMeter = async function () {
       console.log(globalFile);
 
       let mockMeter = {
@@ -53,20 +53,20 @@ define([
         meterImage: globalFile,
       };
 
-      customerDoa.updateByCustomerId(mockMeter, 1);
+      await customerDoa.updateCustomersMeter(mockMeter, 1);
     };
 
-    removeMeter = function () {
-      alert("awe, Remove Meter was clicked");
+    /* removeMeter = function () {
+      //alert("awe, Remove Meter was clicked");
       customerDoa
-        .promiseGetCustomerById(2)
+        .promiseGetCustomerById(1)
         .then((customer) => {
           console.log(customer);
         })
         .catch((err) => {
           console.log(err);
         });
-    };
+    }; */
   };
   return {
     viewModel: meterViewModel,

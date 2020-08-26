@@ -38,10 +38,10 @@ define(['knockout', 'text!/components/form/form-template.html', 'customerDoa'],
             /**
              * IndexedDB
              */
-            saveFormData = function () {
+            saveFormData = async function () {
                 console.log('awe, I have been clicked')
-                
-                 let mockCustomer = {
+
+                let mockCustomer = {
                     /* cID: Math.floor(100 * Math.random()), */
                     customerName: this.firstname(),
                     customerSurname: this.lastname(),
@@ -61,8 +61,8 @@ define(['knockout', 'text!/components/form/form-template.html', 'customerDoa'],
                     tenantEmail: this.tenantEmail(),
 
                 };
- 
-                 customerDoa.insert(mockCustomer) 
+
+                await customerDoa.insertCustomer(mockCustomer)
             }
         }
         return {

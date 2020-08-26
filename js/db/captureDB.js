@@ -2,6 +2,7 @@
  * TODO
  * - this should be called once as it is the database setup...
  */
+/* 
 define([], function () {
     //check for support
     if (!('indexedDB' in window)) {
@@ -34,12 +35,12 @@ define([], function () {
     };
 
     openRequest.onerror = function () {
-        console.error("Error", openRequest.error);
-        /**
-         * TODO
-         * - explain to user that the database connection is faulty 
-         */
-    };
+        console.error("Error", openRequest.error); */
+/**
+ * TODO
+ * - explain to user that the database connection is faulty 
+ */
+/*     };
 
     openRequest.onsuccess = function () {
         let db = openRequest.result;
@@ -49,4 +50,67 @@ define([], function () {
     }
 
     return openRequest;
+})
+ */
+
+define([], function () {
+    let db;
+    let dbNamespace;
+
+    return {
+        openDB: function (nameSpace) {
+            return new Promise(function (resolve, reject) {
+                if (nameSpace != dbNamespace) {
+                    db = null
+                }
+                dbNamespace = nameSpace
+                // If setupDB has already been run and the database was set up, no need to
+                // open the database again; just resolve and return!
+                if (db) {
+                    resolve();
+                    return;
+                }
+
+                let dbName = nameSpace == '' ? 'myDatabase' : nameSpace;
+                let dbReq = indexedDB.open(dbName, 1);
+
+                // Fires when the version of the database goes up, or the database is
+                // created for the first time
+                dbReq.onupgradeneeded = function (event) {
+                    db = event.target.result;
+
+                    // Create an object store named notes, or retrieve it if it already
+                    // exists. Object stores in databases are where data are stored.
+                    let customers;
+                    if (!db.objectStoreNames.contains('customers')) {
+                        customers = db.createObjectStore('customers', {
+                            autoIncrement: true
+                        });
+                        customers.createIndex("cellphone", "cellphone", {
+                            unique: true
+                        });
+
+                        customers.createIndex("address", "address", {
+                            unique: true
+                        });
+                    } else {
+                        customers = dbReq.transaction.objectStore('customers');
+                    }
+                }
+
+                // Fires once the database is opened (and onupgradeneeded completes, if
+                // onupgradeneeded was called)
+                dbReq.onsuccess = function (event) {
+                    // Set the db variable to our database so we can use it!
+                    db = event.target.result;
+                    resolve(db);
+                }
+
+                // Fires when we can't open the database
+                dbReq.onerror = function (event) {
+                    reject(`error opening database ${event.target.errorCode}`);
+                }
+            });
+        }
+    }
 })

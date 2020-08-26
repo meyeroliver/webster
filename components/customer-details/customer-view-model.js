@@ -5,23 +5,23 @@ define([
 ], function (ko, customerTemplate, customerDoa) {
     var customerViewModel = function (params) {
         var self = this;
-        self.customerName = ko.observable("awe")
+        self.customerName = ko.observable()
+        self.customerCellPhone = ko.observable()
+        self.customerEmail = ko.observable()
 
         async function testicle() {
-            return await customerDoa
-                .promiseGetCustomerById(1)
-                .then((data) => {
-                    console.log(data);
-                    self.customerName(data.customerName)
-                    return data;
-                }).then((data) => {
-                    self.customer(data)
-                })
-                .catch((err) => {
-                    console.log(err);
-                });
+            return await customerDoa.getCustomerById(1)
+
         }
-        testicle()
+        testicle().then((customer) => {
+            self.customerName(customer.customerName)
+            self.customerCellPhone(customer.customerCellPhone)
+            self.customerEmail(customer.customerEmail)
+            console.log(customer)
+        }).catch((err) => {
+            console.log(err)
+        })
+
 
     }
     return {
