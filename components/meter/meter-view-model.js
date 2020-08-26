@@ -16,6 +16,8 @@ define([
 
     var hideImgIcon = self.takeImage();
 
+    var globalFile = null;
+
     inpFile.addEventListener("change", function () {
       const file = this.files[0];
       if (file) {
@@ -35,16 +37,20 @@ define([
            * - convert image to blob and save into index db under the current customer
            * - allow for persistence across reloads
            */
+          globalFile = file;
         });
       }
-      console.log(file);
+      // console.log(file);
     });
 
     saveMeter = function () {
+      console.log(globalFile);
+
       let mockMeter = {
         meterType: self.meterType(),
         consumptionType: self.consumptionType(),
         serialNo: self.serialNo(),
+        meterImage: globalFile,
       };
 
       customerDoa.updateByCustomerId(mockMeter, 1);
@@ -52,6 +58,14 @@ define([
 
     removeMeter = function () {
       alert("awe, Remove Meter was clicked");
+      customerDoa
+        .promiseGetCustomerById(2)
+        .then((customer) => {
+          console.log(customer);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     };
   };
   return {

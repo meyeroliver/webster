@@ -40,6 +40,7 @@ define(["knockout", "captureDB"], function (ko, dbConn) {
         customer.meterType = meter.meterType;
         customer.consumptionType = meter.consumptionType;
         customer.serialNo = meter.serialNo;
+        customer.meterImage = meter.meterImage;
 
         let updateRequest = customersStore.put(customer, cId);
 
@@ -86,6 +87,31 @@ define(["knockout", "captureDB"], function (ko, dbConn) {
         //db.close();
       };
     },
+    promiseGetCustomerById: (cId) =>
+      new Promise((resolve, reject) => {
+        /**
+         * TODO: convert the captureDB to promise, so that it is possible to open and close connections on demand
+         */
+        let db = dbConn.result;
+        var transaction = db.transaction("customers", "readonly");
+        var customersStore = transaction.objectStore("customers");
+
+        let transRequest = customersStore.get(cId); // (3)
+        transRequest.onsuccess = function () {
+          if (transRequest.result == undefined || transRequest.result == null) {
+            reject("Record does not exist in the Object Store");
+          }
+          resolve(transRequest.result);
+        };
+        transRequest.onerror = function () {
+          console.log("Error", transRequest.error.message);
+          reject(transRequest.error.message);
+        };
+        transaction.oncomplete = function () {
+          console.log("closing connection to database");
+          //db.close();
+        };
+      }),
     getAllCustomers: function () {
       let db = dbConn.result;
 
