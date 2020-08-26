@@ -1,0 +1,25 @@
+.container {
+    background: red;
+    padding: 5px;
+}
+
+.customer-container {
+    background: chartreuse;
+    padding: 5px;
+}
+
+.costumer-details {
+    background: plum
+}
+
+.costumer-details>div>p {
+    display: inline;
+}
+
+.meter-details {
+    background: tan
+}
+
+.meter-details>div>p {
+    display: inline;
+}

@@ -1,4 +1,93 @@
 <!DOCTYPE html>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="/styles/app-shell.css">
+    <link rel="stylesheet" href="/styles/text.css">
+    <link rel="stylesheet" href="/styles/confirm-details.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script data-main="config" src="/node_modules/requirejs/require.js"></script>
+    <script>
+        // loads file in the /js/config.js
+        require(['config'], function () {
+            //code goes here
+            require(['/loaders/load-customer-details.js'])
+        });
+    </script>
+</head>
+
+<body>
+    <div class="grid-container">
+
+        <div class="header">HEADER</div>
+        <div class="main">
+            <h2 class="page-description">Summary</h2>
+
+            <div class="container">
+                <!--     <div class="customer-container">
+                    <div class="costumer-details">
+                        <H3>Costumer Details</H3>
+                        <div>
+                            <p>Account No : </p>
+                            <p>Blah Blah For now</p>
+                        </div>
+                        <div>
+                            <p>Stand on Map : </p>
+                            <p>Blah Blah For now</p>
+                        </div>
+                        <div>
+                            <p>Street Address : </p>
+                            <p>Blah Blah For now</p>
+                        </div>
+                        <div>
+                            <p>Fullname : </p>
+                            <p>Blah Blah For now</p>
+                        </div>
+                        <div>
+                            <p>Cellphone No : </p>
+                            <p>Blah Blah For now</p>
+                        </div>
+                        <div>
+                            <p>Email : </p>
+                            <p>Blah Blah For now</p>
+                        </div>
+                        <div>
+                            <p>Vat : </p>
+                            <p>Blah Blah For now</p>
+                        </div>
+                    </div>
+                    <div class="meter-details">
+                        <H3>Meter Details</H3>
+                        <div>
+                            <p>Meter Type : </p>
+                            <p>Blah Blah For now</p>
+                        </div>
+                        <div>
+                            <p>Billing Type : </p>
+                            <p>Blah Blah For now</p>
+                        </div>
+                        <div>
+                            <p>Serial No : </p>
+                            <p>Blah Blah For now</p>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+                <customer-detail></customer-detail>
+            </div>
+            <div class="footer">FOOTER</div>
+
+        </div>
+</body>
+
+</html>
+
+<!-- <!DOCTYPE html>
 <html>
     <head>
         <link rel="stylesheet" href="style.css">
@@ -48,7 +137,6 @@
                         <td colspan="2"><span><b>Meter Details</b></span></td>
                         <td></td>
                     </tr>
-                    <!-- ko foreach:info.meterList -->
                     <tr>
                         <td colspan="2">
                             <table style="padding-left: 10px; padding-bottom: 3px; padding-top: 3px">
@@ -67,7 +155,6 @@
                             </table>
                         </td>
                     </tr>
-                    <!-- /ko -->
                     <tr>
                         <td colspan="2"><span><b>Tenant Details</b></span></td>
                         <td></td>
@@ -92,4 +179,4 @@
         </div>
 
     </body>
-</html>
+</html> -->
