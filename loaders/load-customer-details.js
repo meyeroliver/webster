@@ -3,6 +3,10 @@ define(['knockout'], function (ko) {
         require: '/components/customer-details/customer-view-model.js'
     })
 
+    ko.components.register('customer-meter', {
+        require: '/components/customer-meter/customer-meter-view-model.js'
+    })
+
     /**
      * TODO 
      * - see if it is possible to require multiple components

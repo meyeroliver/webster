@@ -59,7 +59,7 @@ define([], function () {
 
     return {
         openDB: function (nameSpace) {
-            return new Promise(function (resolve, reject) {
+            return new Promise(async function (resolve, reject) {
                 if (nameSpace != dbNamespace) {
                     db = null
                 }
@@ -67,7 +67,7 @@ define([], function () {
                 // If setupDB has already been run and the database was set up, no need to
                 // open the database again; just resolve and return!
                 if (db) {
-                    resolve();
+                    resolve(db);
                     return;
                 }
 
