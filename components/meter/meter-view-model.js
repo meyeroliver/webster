@@ -6,9 +6,11 @@ define([
   var meterViewModel = function (params) {
     var self = this;
     self.takeImage = ko.observable(true);
-    self.meterType = ko.observable(params.meterType);
-    self.consumptionType = ko.observable(params.consumptionType);
-    self.serialNo = ko.observable(params.serialNo);
+    self.meterType = ko.observable();
+    self.consumptionType = ko.observable();
+    self.serialNo = ko.observable();
+
+ 
 
     const inpFile = document.getElementById("meter-image");
     const imgContainer = document.getElementById("imagePreview");
@@ -45,12 +47,13 @@ define([
 
     saveMeter = async function () {
       console.log(globalFile);
-
+     
       let mockMeter = {
         meterType: self.meterType(),
         consumptionType: self.consumptionType(),
         serialNo: self.serialNo(),
         meterImage: globalFile,
+
       };
 
       await customerDoa.updateCustomersMeter(mockMeter, 1);

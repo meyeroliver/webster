@@ -1,15 +1,17 @@
-<div class="meter-details">
-    <H3>Meter Details</H3>
-    <div>
-        <p>Meter Type : </p>
-        <p data-bind="text:meterType"></p>
-    </div>
-    <div>
-        <p>Billing Type : </p>
-        <p data-bind="text:consumptionType"></p>
-    </div>
-    <div>
-        <p>Serial No : </p>
-        <p data-bind="text:serialNo"></p>
+<div data-bind="foreach: meterList">
+    <div class="meter-details">
+        <H3>Meter Details</H3>
+        <div>
+            <p>Meter Type : </p>
+            <p data-bind="text:meterType"></p>
+        </div>
+        <div>
+            <p>Billing Type : </p>
+            <p data-bind="text:consumptionType"></p>
+        </div>
+        <div>
+            <p>Serial No : </p>
+            <p data-bind="text:meter.serialNo"></p>
+        </div>
     </div>
 </div>

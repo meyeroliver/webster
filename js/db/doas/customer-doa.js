@@ -171,10 +171,7 @@ define(["captureDB"], function (dbConn) {
         getRequest.onsuccess = function () {
           // (4)
           var customer = getRequest.result;
-          customer.meterType = meter.meterType;
-          customer.consumptionType = meter.consumptionType;
-          customer.serialNo = meter.serialNo;
-          customer.meterImage = meter.meterImage;
+          customer.meterList.push(meter)
 
           let updateRequest = store.put(customer, cId);
 
@@ -202,7 +199,7 @@ define(["captureDB"], function (dbConn) {
     getCustomerById: function (cId) {
       return new Promise(async (resolve, reject) => {
         // Start a database transaction and get the notes object store
-    //    console.log(dbConn.openDB())
+        //    console.log(dbConn.openDB())
         let tx = await dbConn.openDB('capture-db').then((db) => {
           return db.transaction(['customers'], 'readonly');
         })

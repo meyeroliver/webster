@@ -6,33 +6,24 @@ define([
 
     var customerMeterViewModel = function (params) {
         var self = this;
-        /* TODO create a meter and a customer object, extract meter [object] from customer */
-        self.customer = ko.observable(params.customer);
-        //console.log(self.customer())
+        /**
+         * TODO:create a meter and a customer object, extract meter [object] from customer 
+         * TODO: make sure meterList is observable
+         */
+        self.meterList = params.meterList
         self.meterType = ko.observable();
         self.consumptionType = ko.observable();
         self.serialNo = ko.observable();
-        async function testicle() {
-            return await customerDoa.getCustomerById(1);
-        }
-        testicle()
-            .then((customer) => {
-                self.meterType(customer.meterType);
-                self.consumptionType(customer.consumptionType);
-                self.serialNo(customer.serialNo);
+        self.test = ko.computed(function () {
+            var tempMeterList = self.meterList()
+            if (tempMeterList.length != 0) {
+                self.meterType(tempMeterList[1].meterType)
+                self.consumptionType(tempMeterList[1].consumptionType)
+                self.serialNo(tempMeterList[1].serialNo)
+            }
 
-                console.log(customer);
+        }, self.meterList)
 
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-
-
-        /*  self.meterType = ko.observable();
-         self.consumptionType = ko.observable();
-         self.serialNo = ko.observable();
-         console.log(self.customer()) */
     }
     return {
         viewModel: customerMeterViewModel,

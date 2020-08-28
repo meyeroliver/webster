@@ -8,24 +8,19 @@ define([
         self.customerName = ko.observable();
         self.customerCellPhone = ko.observable();
         self.customerEmail = ko.observable();
-
-        self.meterType = ko.observable();
-        self.consumptionType = ko.observable();
-        self.serialNo = ko.observable();
+        self.meterList = ko.observableArray()
 
         async function testicle() {
             return await customerDoa.getCustomerById(1);
         }
         testicle()
             .then((customer) => {
-                self.customerName(customer.customerName);
-                self.customerCellPhone(customer.customerCellphone);
-                self.customerEmail(customer.customerEmail);
-                self.meterType(customer.meterType);
-                self.consumptionType(customer.consumptionType);
-                self.serialNo(customer.serialNo);
-
-                console.log(customer);
+                self.customerName(customer.name);
+                self.customerCellPhone(customer.cellphone);
+                self.customerEmail(customer.email);
+                //TODO: revist this, does not apply to large array
+                self.meterList.push.apply(self.meterList, customer.meterList)
+                //self.meterList.push(customer.meterList[1])
 
             })
             .catch((err) => {

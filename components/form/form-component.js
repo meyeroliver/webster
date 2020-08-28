@@ -26,7 +26,7 @@ define(['knockout', 'text!/components/form/form-template.html', 'customerDoa'],
                     surname: ko.observable(),
                     cellphone: ko.observable(),
                     email: ko.observable(),
-                }
+                },
             }
 
             /**
@@ -63,7 +63,8 @@ define(['knockout', 'text!/components/form/form-template.html', 'customerDoa'],
                         surname: self.customer.tenant.surname(),
                         cellNumber: self.customer.tenant.cellphone(),
                         email: self.customer.tenant.email(),
-                    }
+                    },
+                    meterList: []
 
                 };
                 await customerDoa.insertCustomer(dbCustomer)
