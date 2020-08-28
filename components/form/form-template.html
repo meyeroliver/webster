@@ -6,7 +6,7 @@
         </div>
         <div class="col-6">
             <input type="text" id="first-name" name="first-name" class="text-input-form text-input-border-form"
-                data-bind="value:firstname">
+                data-bind="value:customer.name">
         </div>
     </div>
 
@@ -16,7 +16,7 @@
         </div>
         <div class="col-6">
             <input type="text" id="lastname" name="lastname" class="text-input-form text-input-border-form"
-                data-bind="value:lastname">
+                data-bind="value:customer.surname">
         </div>
     </div>
 
@@ -26,7 +26,7 @@
         </div>
         <div class="col-6">
             <input type="text" id="cellphone" name="cellphone" class="text-input-form text-input-border-form"
-                data-bind="value:cellphone">
+                data-bind="value:customer.cellphone">
         </div>
     </div>
 
@@ -36,7 +36,7 @@
         </div>
         <div class="col-6">
             <input type="text" id="email" name="email" class="text-input-form text-input-border-form"
-                data-bind="value:email">
+                data-bind="value:customer.email">
         </div>
     </div>
 
@@ -46,7 +46,7 @@
         </div>
         <div class="col-6">
             <input type="text" id="address" name="address" class="text-input-form text-input-border-form"
-                data-bind="value:address">
+                data-bind="value:customer.address">
         </div>
     </div>
 
@@ -58,7 +58,7 @@
         </div>
         <div class="col-6">
             <input type="text" id="standNo" name="standNo" class="text-input-form text-input-border-form"
-                data-bind="value:standNo">
+                data-bind="value:customer.standNo">
         </div>
     </div>
 
@@ -68,7 +68,7 @@
         </div>
         <div class="col-6">
             <input type="text" id="accountNo" name="accountNo" class="text-input-form text-input-border-form"
-                data-bind="value:accountNo">
+                data-bind="value:customer.accountNo">
         </div>
     </div>
 
@@ -80,7 +80,7 @@
         </div>
         <div class="col-6">
             <input type="text" id="address-level4" name="address" class="text-input-form text-input-border-form"
-                data-bind="value:billingAddress1">
+                data-bind="value:customer.billingAddress1">
         </div>
     </div>
 
@@ -90,7 +90,7 @@
         </div>
         <div class="col-6">
             <input type="text" id="address-level3" name="address-level4" class="text-input-form text-input-border-form"
-                data-bind="value:billingAddress2">
+                data-bind="value:customer.billingAddress2">
         </div>
     </div>
 
@@ -100,7 +100,7 @@
         </div>
         <div class="col-6">
             <input type="text" id="address-level2" name="address-level2" class="text-input-form text-input-border-form"
-                data-bind="value:billingAddress3">
+                data-bind="value:customer.billingAddress3">
         </div>
     </div>
 
@@ -110,7 +110,7 @@
         </div>
         <div class="col-6">
             <input type="text" id="postal-code" name="postal-code" class="text-input-form text-input-border-form"
-                data-bind="value:postalCode">
+                data-bind="value:customer.postalCode">
         </div>
     </div>
 
@@ -139,7 +139,7 @@
             </div>
             <div class="col-6">
                 <input type="text" id="tenant-name" name="tenant-name" class="text-input-form text-input-border-form"
-                    data-bind="value:tenantName">
+                    data-bind="value:customer.tenant.name">
             </div>
         </div>
 
@@ -149,7 +149,7 @@
             </div>
             <div class="col-6">
                 <input type="text" id="tenant-surname" name="tenant-surname"
-                    class="text-input-form text-input-border-form" data-bind="value:tenantSurname">
+                    class="text-input-form text-input-border-form" data-bind="value:customer.tenant.surname">
             </div>
         </div>
 
@@ -159,7 +159,7 @@
             </div>
             <div class="col-6">
                 <input type="text" id="tenant-cellphone" name="tenant-cellphone"
-                    class="text-input-form text-input-border-form" data-bind="value:tenantCellphone">
+                    class="text-input-form text-input-border-form" data-bind="value:customer.tenant.cellphone">
             </div>
         </div>
 
@@ -169,7 +169,7 @@
             </div>
             <div class="col-6">
                 <input type="text" id="tenant-email" name="tenant-email" class="text-input-form text-input-border-form"
-                    data-bind="value:tenantEmail">
+                    data-bind="value:customer.tenant.email">
             </div>
         </div>
     </div>
@@ -184,5 +184,4 @@
 
         </div>
     </div>
-
 </form>

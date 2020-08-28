@@ -1,28 +1,34 @@
 define(['knockout', 'text!/components/form/form-template.html', 'customerDoa'],
     function (ko, formTemplate, customerDoa) {
 
-        var userDetailsViewModel = function (params) {
+        var userDetailsViewModel = function () {
 
             /**
              * Text Input
              */
+            var self = this
 
-            this.firstname = ko.observable(params.firstname)
-            this.lastname = ko.observable(params.lastname)
-            this.cellphone = ko.observable(params.cellphone)
-            this.email = ko.observable(params.email)
-            this.address = ko.observable(params.address)
-            this.standNo = ko.observable(params.standNo)
-            this.accountNo = ko.observable(params.accountNo)
-            this.billingAddress1 = ko.observable(params.billingAddress1)
-            this.billingAddress2 = ko.observable(params.billingAddress2)
-            this.billingAddress3 = ko.observable(params.billingAddress3)
-            this.postalCode = ko.observable(params.postalCode)
-            //TODO vat number
-            this.tenantName = ko.observable(params.tenantName)
-            this.tenantSurname = ko.observable(params.tenantSurname)
-            this.tenantCellphone = ko.observable(params.tenantCellphone)
-            this.tenantEmail = ko.observable(params.tenantEmail)
+            self.customer = {
+                name: ko.observable(),
+                surname: ko.observable(),
+                cellphone: ko.observable(),
+                email: ko.observable(),
+                address: ko.observable(),
+                standNo: ko.observable(),
+                accountNo: ko.observable(),
+                billingAddress1: ko.observable(),
+                billingAddress2: ko.observable(),
+                billingAddress3: ko.observable(),
+                postalCode: ko.observable(),
+                //O vat number
+                tenant: {
+                    name: ko.observable(),
+                    surname: ko.observable(),
+                    cellphone: ko.observable(),
+                    email: ko.observable(),
+                }
+            }
+
             /**
              * Checkbox
              */
@@ -39,30 +45,28 @@ define(['knockout', 'text!/components/form/form-template.html', 'customerDoa'],
              * IndexedDB
              */
             saveFormData = async function () {
-                console.log('awe, I have been clicked')
 
-                let mockCustomer = {
-                    /* cID: Math.floor(100 * Math.random()), */
-                    customerName: this.firstname(),
-                    customerSurname: this.lastname(),
-                    customerCellphone: this.cellphone(),
-                    customerEmail: this.email(),
-                    accountNumber: this.accountNo(),
-                    standNumber: this.standNo(),
-                    standDescription: this.address(),
-                    billingAddress1: this.billingAddress1(),
-                    billingAddress2: this.billingAddress2(),
-                    billingAddress3: this.billingAddress3(),
-                    postalCode: this.postalCode(),
-                    vatNo: 100 * Math.random(),
-                    tenantName: this.tenantName(),
-                    tenantSurname: this.tenantSurname(),
-                    tenantCellNumber: this.tenantCellphone(),
-                    tenantEmail: this.tenantEmail(),
+                let dbCustomer = {
+                    name: self.customer.name(),
+                    surname: self.customer.surname(),
+                    cellphone: self.customer.cellphone(),
+                    email: self.customer.email(),
+                    accountNo: self.customer.accountNo(),
+                    standNo: self.customer.standNo(),
+                    standDescription: self.customer.address(),
+                    billingAddress1: self.customer.billingAddress1(),
+                    billingAddress2: self.customer.billingAddress2(),
+                    billingAddress3: self.customer.billingAddress3(),
+                    postalCode: self.customer.postalCode(),
+                    tenant: {
+                        name: self.customer.tenant.name(),
+                        surname: self.customer.tenant.surname(),
+                        cellNumber: self.customer.tenant.cellphone(),
+                        email: self.customer.tenant.email(),
+                    }
 
                 };
-
-                await customerDoa.insertCustomer(mockCustomer)
+                await customerDoa.insertCustomer(dbCustomer)
             }
         }
         return {
