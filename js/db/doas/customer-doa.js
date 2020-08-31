@@ -224,6 +224,31 @@ define(["captureDB"], function (dbConn) {
           reject(`error storing note ${event.target.errorCode}`);
         }
       });
+    },getAllCustomers: function () {
+      return new Promise(async (resolve, reject) => {
+        // Start a database transaction and get the notes object store
+        //    console.log(dbConn.openDB())
+        let tx = await dbConn.openDB('capture-db').then((db) => {
+          return db.transaction(['customers'], 'readonly');
+        })
+        let store = tx.objectStore('customers');
+
+        var customerReq = store.getAll();
+        var customer = null
+        customerReq.onsuccess = function () {
+          customer = customerReq.result
+        }
+
+        // Wait for the database transaction to complete. If it is successful,
+        // resolve. Otherwise, reject with our error message.
+        tx.oncomplete = function () {
+          console.log(customerReq.result)
+          resolve(customerReq.result)
+        }
+        tx.onerror = function (event) {
+          reject(`error storing note ${event.target.errorCode}`);
+        }
+      });
     }
   }
 

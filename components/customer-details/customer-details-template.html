@@ -1,4 +1,4 @@
-<div class="customer-container">
+<div class="customer-container" data-bind="foreach: customerList">
     <div class="costumer-details">
         <H3>Costumer Details</H3>
         <div>
@@ -15,15 +15,15 @@
         </div>
         <div>
             <p>Fullname : </p>
-            <p data-bind="text:customerName"></p>
+            <p data-bind="text:name"></p>
         </div>
         <div>
             <p>Cellphone No : </p>
-            <p data-bind="text:customerCellPhone"></p>
+            <p data-bind="text:cellphone"></p>
         </div>
         <div>
             <p>Email : </p>
-            <p data-bind="text:customerEmail"></p>
+            <p data-bind="text:email"></p>
         </div>
         <div>
             <p>Vat : </p>
