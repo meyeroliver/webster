@@ -1,4 +1,4 @@
-<div class="customer-container" data-bind="foreach: customerList">
+<div class="customer-container">
     <div class="costumer-details">
         <H3>Costumer Details</H3>
         <div>
@@ -15,20 +15,23 @@
         </div>
         <div>
             <p>Fullname : </p>
-            <p data-bind="text:name"></p>
+            <p data-bind="text:customer.name"></p>
         </div>
         <div>
             <p>Cellphone No : </p>
-            <p data-bind="text:cellphone"></p>
+            <p data-bind="text:customer.cellphone"></p>
         </div>
         <div>
             <p>Email : </p>
-            <p data-bind="text:email"></p>
+            <p data-bind="text:customer.email"></p>
         </div>
         <div>
             <p>Vat : </p>
             <p>Blah Blah For now</p>
         </div>
     </div>
-    <customer-meter params="meterList: meterList"></customer-meter>
+    <div data-bind="foreach:customer.meterList">
+        <customer-meter params="meter: $data"></customer-meter>
+    </div>
+
 </div>

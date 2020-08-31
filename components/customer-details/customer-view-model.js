@@ -10,9 +10,9 @@ define([
         self.customerCellPhone = ko.observable();
         self.customerEmail = ko.observable();
         self.meterList = ko.observableArray() */
-        self.customerList = ko.observableArray();
-
-        async function testicle() {
+        //  self.customer = ko.observableArray();
+        self.customer = params.customer;
+        /* async function testicle() {
             return await customerDoa.getAllCustomers();
         }
         testicle()
@@ -28,7 +28,7 @@ define([
             })
             .catch((err) => {
                 console.log(err);
-            });
+            }); */
     };
     return {
         viewModel: customerViewModel,

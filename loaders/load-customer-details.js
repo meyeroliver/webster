@@ -1,4 +1,8 @@
 define(['knockout'], function (ko) {
+    ko.components.register('confirm-details', {
+        require: '/components/confirm-details-activity/confirm-details-view-models.js'
+    })
+
     ko.components.register('customer-detail', {
         require: '/components/customer-details/customer-view-model.js'
     })
