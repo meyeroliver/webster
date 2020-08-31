@@ -1,8 +1,7 @@
 define([
     "knockout",
     "text!/components/customer-meter/customer-meter-template.html",
-    "customerDoa",
-], function (ko, customerMeterTemplate, customerDoa) {
+], function (ko, customerMeterTemplate) {
 
     var customerMeterViewModel = function (params) {
         var self = this;
@@ -11,7 +10,8 @@ define([
          * TODO: make sure meterList is observable
          */
         self.meterList = params.meterList
-        self.meterType = ko.observable();
+
+        /* self.meterType = ko.observable();
         self.consumptionType = ko.observable();
         self.serialNo = ko.observable();
         self.test = ko.computed(function () {
@@ -22,7 +22,7 @@ define([
                 self.serialNo(tempMeterList[1].serialNo)
             }
 
-        }, self.meterList)
+        }, self.meterList) */
 
     }
     return {
