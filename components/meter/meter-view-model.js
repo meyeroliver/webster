@@ -5,18 +5,23 @@ define([
 ], function (ko, meterTemplate, customerDoa) {
   var meterViewModel = function (params) {
     var self = this;
-    self.takeImage = ko.observable(true);
-    self.meterType = ko.observable();
-    self.consumptionType = ko.observable();
-    self.serialNo = ko.observable();
 
- 
+    self.addNew = params.meter
+    console.log(params)
+
+    self.meter = {
+      takeImage: ko.observable(true),
+      meterType: ko.observable(),
+      consumptionType: ko.observable(),
+      serialNo: ko.observable(),
+      /* index: index */
+    }
 
     const inpFile = document.getElementById("meter-image");
     const imgContainer = document.getElementById("imagePreview");
     const capturedImg = imgContainer.querySelector(".captured-image");
 
-    var hideImgIcon = self.takeImage();
+    var hideImgIcon = self.meter.takeImage();
 
     var globalFile = null;
 
@@ -32,7 +37,7 @@ define([
           /**
            *This sets the captured image to the element
            */
-          self.takeImage(false);
+          self.meter.takeImage(false);
           capturedImg.setAttribute("src", this.result);
           /**
            * TODO
@@ -46,17 +51,24 @@ define([
     });
 
     saveMeter = async function () {
-      console.log(globalFile);
-     
-      let mockMeter = {
-        meterType: self.meterType(),
-        consumptionType: self.consumptionType(),
-        serialNo: self.serialNo(),
-        meterImage: globalFile,
+      //console.log(globalFile);
+      self.meter = {
+        takeImage: ko.observable(true),
+        meterType: ko.observable(),
+        consumptionType: ko.observable(),
+        serialNo: ko.observable(),
+      }
+      params.meterFormList.push(self.meter)
 
+
+      let mockMeter = {
+        meterType: self.meter.meterType(),
+        consumptionType: self.meter.consumptionType(),
+        serialNo: self.meter.serialNo(),
+        meterImage: globalFile,
       };
 
-      await customerDoa.updateCustomersMeter(mockMeter, 1);
+      // await customerDoa.updateCustomersMeter(mockMeter, 2);
     };
 
     /* removeMeter = function () {

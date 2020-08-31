@@ -1,4 +1,8 @@
 define(['knockout'], function (ko) {
+    ko.components.register('meter-details', {
+        require: '/components/meter-details-activity/meter-details-view-model.js'
+    })
+
     ko.components.register('meter-card', {
         require: '/components/meter/meter-view-model.js'
     })

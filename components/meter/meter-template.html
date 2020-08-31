@@ -1,7 +1,7 @@
 <div class="meter-card">
     <div class="row" style="height: 75%;">
         <div class="img-container">
-            <label for="meter-image" class="img-label" data-bind=" visible: takeImage">
+            <label for="meter-image" class="img-label" data-bind=" visible: meter.takeImage">
                 <img src="/images/photo_camera-24px.svg" alt="Image not found" class="captured-image" />
             </label>
             <input type="file" id="meter-image" name="meter-image" accept="image/*" capture="camera"
@@ -11,19 +11,19 @@
             </div>
         </div>
         <div class="input-container">
-            <select name="meter-type" id="meter-type" class="meter-form-input" data-bind="value: meterType">
+            <select name="meter-type" id="meter-type" class="meter-form-input" data-bind="value: meter.meterType">
                 <option value="electricity">ELECTRICITY</option>
                 <option value="water">WATER</option>
             </select>
 
             <select name="consumption-type" id="consumption-type" class="meter-form-input"
-                data-bind="value: consumptionType">
+                data-bind="value: meter.consumptionType">
                 <option value=" prepaid">PREPAID</option>
                 <option value="postpaid">POSTPAID</option>
             </select>
 
             <input type="text" id="serialNo" name="serialNo" class="text-input-border-form meter-form-input"
-                data-bind="textInput: serialNo">
+                data-bind="textInput: meter.serialNo">
         </div>
 
     </div>

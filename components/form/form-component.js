@@ -3,11 +3,7 @@ define(['knockout', 'text!/components/form/form-template.html', 'customerDoa'],
 
         var userDetailsViewModel = function () {
 
-            /**
-             * Text Input
-             */
             var self = this
-
             self.customer = {
                 name: ko.observable(),
                 surname: ko.observable(),
@@ -27,18 +23,15 @@ define(['knockout', 'text!/components/form/form-template.html', 'customerDoa'],
                     cellphone: ko.observable(),
                     email: ko.observable(),
                 },
+                hasTenant: ko.observable()
             }
 
-            /**
-             * Checkbox
-             */
-            this.hasTenant = ko.observable()
             /**
              * TODO
              * -> Check a bit deeper into subscribers maybe for validations
              */
             this.showTenantContainer = ko.computed(function () {
-                return this.hasTenant()
+                return self.customer.hasTenant()
             }, this)
 
             /**
@@ -46,6 +39,7 @@ define(['knockout', 'text!/components/form/form-template.html', 'customerDoa'],
              */
             saveFormData = async function () {
 
+                console.log(self.customer)
                 let dbCustomer = {
                     name: self.customer.name(),
                     surname: self.customer.surname(),
