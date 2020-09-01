@@ -14,99 +14,32 @@ define([
       meterType: ko.observable(),
       consumptionType: ko.observable(),
       serialNo: ko.observable(),
-      //index: index 
     }
 
-
-    //self.fileId = ko.observable("meter-image")
-    /* self.testicle1 = function (index) {
-      const capturedImg = document.getElementById("captured-image-" + index);
-      console.log(capturedImg)
-    } */
-    /* var x = document.getElementsByClassName("img-label");
-    console.log(x[0])
- */
     var globalFile = null;
     self.testicle = function (index) {
-      console.log(index)
       const inpFile = document.getElementById("meter-image-" + index);
       const labelInpFile = document.getElementById("label-meter-image-" + index);
 
-      console.log(labelInpFile)
-
       inpFile.addEventListener("change", function () {
 
-        console.log("awe awe awe awe")
-        console.log(index)
         const capturedImg = document.getElementById("captured-image-" + index);
-        // console.log(capturedImg)
 
         const file = this.files[0];
         if (file) {
           const reader = new FileReader();
           reader.readAsDataURL(file);
-          /**
-           *waits for image to finish loading
-           */
           reader.addEventListener("load", function () {
-            /**
-             *This sets the captured image to the element
-             */
-            console.log(self.meter)
-            self.meter.takeImage(false);
             labelInpFile.style.display = 'none'
+            self.meter.takeImage(false)
             capturedImg.setAttribute("src", this.result);
-            /**
-             * TODO
-             * - convert image to blob and save into index db under the current customer
-             * - allow for persistence across reloads
-             */
             globalFile = file;
           });
         }
-        console.log(file);
       });
     }
-    //const inpFile = document.getElementById("meter-image");
-    //const imgContainer = document.getElementById("imagePreview");
-    //const capturedImg = imgContainer.querySelector(".captured-image");
-    //const capturedImg = document.getElementById("captured-image");
 
-    var hideImgIcon = self.meter.takeImage();
-
-    // var globalFile = null;
-
-    // inpFile.addEventListener("change", function () {
-    // const file = this.files[0];
-    // if (file) {
-    // const reader = new FileReader();
-    // reader.readAsDataURL(file);
-    /**
-     *waits for image to finish loading
-     */
-    // reader.addEventListener("load", function () {
-    /**
-     *This sets the captured image to the element
-     */
-    // self.meter.takeImage(false);
-    // capturedImg.setAttribute("src", this.result);
-    /**
-     * TODO
-     * - convert image to blob and save into index db under the current customer
-     * - allow for persistence across reloads
-     */
-    // globalFile = file;
-    // });
-    // }
-    // console.log(file);
-    // });
-
-    saveMeter = async function () {
-      //console.log(globalFile);
-
-
-      /* const inpFile1 = document.getElementById("meter-image-0");
-      console.log(inpFile1) */
+    self.saveMeter = async function () {
 
       let mockMeter = {
         meterType: self.meter.meterType(),
@@ -115,8 +48,7 @@ define([
         meterImage: globalFile,
       };
 
-      console.log(mockMeter)
-      await customerDoa.updateCustomersMeter(mockMeter, 2);
+
 
       self.meter = {
         takeImage: ko.observable(true),
@@ -124,21 +56,58 @@ define([
         consumptionType: ko.observable(),
         serialNo: ko.observable(),
       }
-      params.meterFormList.push(self.meter)
+      params.meterFormList.push(mockMeter)
+      //params.meterFormList.push(self.meter)
+      console.log(params.meterFormList())
+      console.log(mockMeter)
+      await customerDoa.updateCustomersMeter(mockMeter, 2);
 
     };
 
-    /* removeMeter = function () {
+    /**
+     * TODO: remove from observable array and the indexeddb
+     */
+    self.removeMeter = function (data, event, index) {
       //alert("awe, Remove Meter was clicked");
-      customerDoa
+
+      if (event.type === 'click') {
+        if (index != params.meterFormList().length - 1) {
+
+          console.log(event.type)
+          console.log(index)
+          console.log(params.meterFormList().length)
+          var itemToRemove = params.meterFormList()[index]
+          //        console.log(params.meterFormList())
+          console.log(itemToRemove)
+          console.log(params.meterFormList.remove(itemToRemove))
+          //      console.log(params.meterFormList.remove(itemToRemove))
+
+        }
+      }
+      /* console.log(mockMeter)
+      console.log(params.meterFormList.indexOf(mockMeter)) */
+      //if (self.meter.index != 0) {
+      // var itemToRemove = params.meterFormList()[index]
+      /*  console.log(self.meter.index)
+      console.log(itemToRemove)
+      console.log(params.meterFormList)
+      console.log(params.meterFormList())
+      // console.log(params.meterFormList()[index])
+      // console.log(params.meterFormList())*/
+      //console.log(params.meterFormList.remove(itemToRemove))
+
+      // console.log(params.meterFormList.remove(itemToRemove))
+
+      // }
+      /* customerDoa
         .promiseGetCustomerById(1)
         .then((customer) => {
           console.log(customer);
         })
         .catch((err) => {
           console.log(err);
-        });
-    }; */
+        }); */
+    };
   };
   return {
     viewModel: meterViewModel,

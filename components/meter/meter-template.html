@@ -29,7 +29,8 @@
 
     </div>
     <div class="row" style="float:right; height: 25%; background: rgb(1, 10, 133);">
-        <button id="removeMeter" type="button" class="primaryButton" data-bind="click: removeMeter">Remove</button>
+        <button id="removeMeter" type="button" class="primaryButton"
+            data-bind="click: function(data,event){removeMeter(data,event,$index())}">Remove</button>
         <button id="saveMeter" type="button" class="primaryButton" data-bind="click: saveMeter">Save</button>
     </div>
 </div>

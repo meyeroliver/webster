@@ -18,6 +18,8 @@ define([
         self.testicle = ko.computed(function () {
             console.log(self.meterFormList())
         }, this)
+
+
         /* self.customerList = ko.observableArray();
 
         async function testicle() {
