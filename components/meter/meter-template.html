@@ -1,13 +1,14 @@
 <div class="meter-card">
     <div class="row" style="height: 75%;">
         <div class="img-container">
-            <label for="meter-image" class="img-label" data-bind=" visible: meter.takeImage">
+            <label data-bind="attr:{id:'label-meter-image-'+$index(),'for':'meter-image-'+$index()}, 
+            visible: meter.takeImage" class="img-label">
                 <img src="/images/photo_camera-24px.svg" alt="Image not found" class="captured-image" />
             </label>
-            <input type="file" id="meter-image" name="meter-image" accept="image/*" capture="camera"
-                style="display: none;">
+            <input type="file" data-bind="attr:{id: 'meter-image-'+$index()}, event:{change:testicle($index())}"
+                name="meter-image" accept="image/*" capture="camera" style="display: none;">
             <div id="imagePreview" class="img-label" style="position:relative; height:100%">
-                <img src="" class="captured-image">
+                <img src="" data-bind="attr:{'id':'captured-image-'+$index()}" class="captured-image">
             </div>
         </div>
         <div class="input-container">
