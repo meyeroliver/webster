@@ -17,6 +17,7 @@ define([
       //index: index 
     }
 
+
     //self.fileId = ko.observable("meter-image")
     /* self.testicle1 = function (index) {
       const capturedImg = document.getElementById("captured-image-" + index);
@@ -25,6 +26,7 @@ define([
     /* var x = document.getElementsByClassName("img-label");
     console.log(x[0])
  */
+    var globalFile = null;
     self.testicle = function (index) {
       console.log(index)
       const inpFile = document.getElementById("meter-image-" + index);
@@ -101,6 +103,21 @@ define([
 
     saveMeter = async function () {
       //console.log(globalFile);
+
+
+      /* const inpFile1 = document.getElementById("meter-image-0");
+      console.log(inpFile1) */
+
+      let mockMeter = {
+        meterType: self.meter.meterType(),
+        consumptionType: self.meter.consumptionType(),
+        serialNo: self.meter.serialNo(),
+        meterImage: globalFile,
+      };
+
+      console.log(mockMeter)
+      await customerDoa.updateCustomersMeter(mockMeter, 2);
+
       self.meter = {
         takeImage: ko.observable(true),
         meterType: ko.observable(),
@@ -109,17 +126,6 @@ define([
       }
       params.meterFormList.push(self.meter)
 
-      /* const inpFile1 = document.getElementById("meter-image-0");
-      console.log(inpFile1) */
-
-      /* let mockMeter = {
-        meterType: self.meter.meterType(),
-        consumptionType: self.meter.consumptionType(),
-        serialNo: self.meter.serialNo(),
-        meterImage: globalFile,
-      }; */
-
-      // await customerDoa.updateCustomersMeter(mockMeter, 2);
     };
 
     /* removeMeter = function () {
