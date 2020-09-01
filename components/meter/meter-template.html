@@ -1,8 +1,7 @@
 <div class="meter-card">
     <div class="row" style="height: 75%;">
         <div class="img-container">
-            <label data-bind="attr:{id:'label-meter-image-'+$index(),'for':'meter-image-'+$index()}, 
-            visible: meter.takeImage" class="img-label">
+            <label data-bind="attr:{id:'label-meter-image-'+$index(),'for':'meter-image-'+$index()}" class="img-label">
                 <img src="/images/photo_camera-24px.svg" alt="Image not found" class="captured-image" />
             </label>
             <input type="file" data-bind="attr:{id: 'meter-image-'+$index()}, event:{change:testicle($index())}"
@@ -29,8 +28,9 @@
 
     </div>
     <div class="row" style="float:right; height: 25%; background: rgb(1, 10, 133);">
-        <button id="removeMeter" type="button" class="primaryButton"
-            data-bind="click: function(data,event){removeMeter(data,event,$index())}">Remove</button>
-        <button id="saveMeter" type="button" class="primaryButton" data-bind="click: saveMeter">Save</button>
+        <button id="removeMeter" type="button" class="primaryButton" data-bind="click: function(data,event){removeMeter(data,event,$index())},
+            style:{display: meter.showButton() ? 'none': 'inline-block'}">Remove</button>
+        <button id="saveMeter" type="button" class="primaryButton"
+            data-bind="click: saveMeter, style:{display: meter.showButton() ? 'inline-block' :'none'}">Save</button>
     </div>
 </div>
