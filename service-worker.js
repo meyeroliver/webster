@@ -3,8 +3,17 @@ const precacheResources = [
 
     '/index.html',
     'styles/main.css',
+    'styles/meter.css',
+    'styles/form.css',
+    'styles/text.css',
+    'loaders/load-meter-details.js',
+    'components/meter-details-activity/meter-details-template.html',
+    'components/meter-details-activity/meter-details-view-model.js',
+    '/components/meter/meter-template.html',
+    'components/meter/meter-view-model.js',
     '/images/touch/netelek-logo-orange.png',
-    '/images/coverphoto.png'
+    '/images/coverphoto.png',
+
 
 ];
 
