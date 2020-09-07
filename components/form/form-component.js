@@ -1,9 +1,10 @@
 define(['knockout', 'text!/components/form/form-template.html', 'customerDoa'],
     function (ko, formTemplate, customerDoa) {
 
-        var userDetailsViewModel = function () {
+        var userDetailsViewModel = function (params) {
 
             var self = this
+
             self.customer = {
                 name: ko.observable(),
                 surname: ko.observable(),

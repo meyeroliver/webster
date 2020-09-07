@@ -28,9 +28,13 @@ ol>li {
   background-color: #4caf50;
   transition-duration: 0.5s;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 
+#nextButton,
+#saveButton {
   float: right;
 }
+
 
 #next-button:hover {
   color: white;

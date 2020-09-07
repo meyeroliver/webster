@@ -6,7 +6,8 @@
             </label>
             <input type="file" data-bind="attr:{id: 'meter-image-'+$index()}, event:{change:testicle($index())}"
                 name="meter-image" accept="image/*" capture="camera" style="display: none;">
-            <div id="imagePreview" class="img-label" style="position:relative; height:100%">
+            <div class="img-label" style="position:relative; height:100%; "
+                data-bind="attr:{'id':'imagePreview-'+$index()}, visible:meter.imageLabel">
                 <img src="" data-bind="attr:{'id':'captured-image-'+$index()}" class="captured-image">
             </div>
         </div>

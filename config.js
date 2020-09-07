@@ -6,6 +6,7 @@
          'text': 'text',
          'indexedDB': 'index-min',
          'captureDB': 'db/captureDB',
-         'customerDoa': 'db/doas/customer-doa'
+         'customerDoa': 'db/doas/customer-doa',
+         'c': '../components/confirm-details-activity/confirm-details-view-models'
      }
  })

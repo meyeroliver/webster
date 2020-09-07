@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="/styles/text.css">
     <link rel="stylesheet" href="/styles/form.css">
     <link rel="stylesheet" href="/styles/meter.css">
+    <link rel="stylesheet" href="/styles/confirm-details.css">
 
 
     <script data-main="config" src="/node_modules/requirejs/require.js"></script>
@@ -33,7 +34,8 @@
             //code goes here
             // require(['index-view-model'])
             // require(['/loaders/load-user-details.js'])
-            require(['/loaders/load-meter-details.js'])
+            //require(['/loaders/load-meter-details.js'])
+            require(['/loaders/load-app.js'])
         });
     </script>
 
@@ -42,19 +44,10 @@
 </head>
 
 <body>
-    <div class="grid-container">
-
-        <div class="header">HEADER</div>
-        <div class="main">
-            <!--       <user-details-form>
-            </user-details-form>
--->
-            <meter-details></meter-details>
-        </div>
-        <div class="footer">FOOTER</div>
-    </div>
+    <div id="lolo"></div>
+    <application></application>
 </body>
-<script src="/js/register-sw.js"></script>
+<!-- <script src="/js/register-sw.js"></script> -->
 
 </html>
 

@@ -13,7 +13,8 @@ define([
       consumptionType: ko.observable(),
       serialNo: ko.observable(),
       showButton: ko.observable(true),
-      meterImage: ko.observable()
+      meterImage: ko.observable(),
+      imageLabel: ko.observable(false)
     }
 
 
@@ -31,6 +32,7 @@ define([
           reader.addEventListener("load", function () {
             labelInpFile.style.display = 'none'
             capturedImg.setAttribute("src", this.result);
+            self.meter.imageLabel(true)
             self.meter.meterImage(file);
           });
         }
@@ -48,6 +50,13 @@ define([
         meterImage: self.meter.meterImage(),
       };
 
+      /**
+       * TODO: 
+       * 
+       * ? - look up the most recent customer entry
+       * ? - get the customerId
+       * ? - use this to update the meterlist of the customer
+       */
       params.meterFormList.push(mockMeter)
       await customerDoa.updateCustomersMeter(mockMeter, 1);
     };
@@ -60,6 +69,11 @@ define([
         if (index != params.meterFormList().length - 1) {
           var itemToRemove = params.meterFormList()[index]
           params.meterFormList.remove(itemToRemove)
+          /**
+           * TODO:
+           * 
+           * ? - remove meter from the indexedDB as well
+           */
         }
       }
     };

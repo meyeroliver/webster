@@ -1,0 +1,20 @@
+<div class="grid-container">
+
+    <div class="header">HEADER</div>
+    <div class="main">
+        <div id="isjah">
+        </div>
+        <user-details-form data-bind="visible: app.pageCount() == 0 ? true : false">
+        </user-details-form>
+        <meter-details data-bind="visible: app.pageCount() == 1 ? true : false"></meter-details>
+        <confirm-details params="pager:app.pageCount()" data-bind="visible: app.pageCount() == 2 ? true : false">
+        </confirm-details>
+
+    </div>
+    <div class="footer">
+        <div class=" row">
+            <button id="backButton" class="primaryButton" type="button" data-bind="click:backButtonClick">BACK</button>
+            <button id=nextButton class="primaryButton" type="button" data-bind="click:nextButtonClick">NEXT</button>
+        </div>
+    </div>
+</div>
