@@ -12,7 +12,7 @@ define(['knockout', 'text!/components/app/app-template.html', 'customerDoa', 'c'
 
             function increment() {
                 var currentPage = self.app.pageCount()
-                if (currentPage != 2)
+                if (currentPage != 4)
                     self.app.pageCount(currentPage + 1)
 
                 return self.app.pageCount()

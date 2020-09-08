@@ -2,12 +2,50 @@
 
     <div class="header">HEADER</div>
     <div class="main">
-        <div id="isjah">
+        <!-- <div id="isjah">
+        </div> -->
+
+        <div data-bind="visible: app.pageCount() == 0 ? true : false">
+            <h2 class="page-description">Message from the Municipality</h2>
+            <h3>Dear Residence</h3>
+            <p>
+                We are now in our next phase of obtaining accurate data from all the
+                residential postpaid customers. Our apologies for the previous
+                estimation but soon, estimations will be something from the past.
+            </p>
+            <p>
+                We are having a huge data recovery drive on the weekend of 30 November.
+                We will have around 40 staff members (supported by senior municipal staff also)
+                in the field to engage with customers and obtain
+                metering and customer-related information directly on site via house to house
+                visits. We
+                trust you will assist us as we have specially arranged the drive to happen over a
+                weekend so
+                that we are sure to meet with you and get the best data we can.
+            </p>
+            <p>The better you assist us - the more accurate and better the service delivery is going to be.</p>
+            <p>We look forward to seeing you soon.</p>
+
+            <h2>Info about this app</h2>
+            <h3>You will use this app to:</h3>
+            <ol>
+                <li>select your stand.</li>
+                <li>update your customer information.</li>
+                <li>capture your meter information.</li>
+                <li>and then submit the information.</li>
+            </ol>
         </div>
-        <user-details-form data-bind="visible: app.pageCount() == 0 ? true : false">
+
+        <user-details-form data-bind="visible: app.pageCount() == 1 ? true : false">
         </user-details-form>
-        <meter-details data-bind="visible: app.pageCount() == 1 ? true : false"></meter-details>
-        <confirm-details params="pager:app.pageCount()" data-bind="visible: app.pageCount() == 2 ? true : false">
+        <div data-bind="visible: app.pageCount() == 2 ? true : false">
+            <p id="latiude">latiude</p>
+            <p id="longitude">longitude</p>
+            <button onclick="myFunction()">get Location</button>
+        </div>
+
+        <meter-details data-bind="visible: app.pageCount() == 3 ? true : false"></meter-details>
+        <confirm-details params="pager:app.pageCount()" data-bind="visible: app.pageCount() == 4 ? true : false">
         </confirm-details>
 
     </div>

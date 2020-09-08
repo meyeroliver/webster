@@ -11,7 +11,7 @@ define([
 
 
         ko.computed(function () {
-            if (self.pager() == 2) {
+            if (self.pager() == 4) {
                 console.log(self.pager())
                 if (self.customerList().length == 0)
                     testicle()
